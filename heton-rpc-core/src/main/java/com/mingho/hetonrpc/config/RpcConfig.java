@@ -1,5 +1,7 @@
 package com.mingho.hetonrpc.config;
 
+import com.mingho.hetonrpc.serializer.Serializer;
+import com.mingho.hetonrpc.serializer.SerializerKeys;
 import lombok.Data;
 
 /**
@@ -32,4 +34,9 @@ public class RpcConfig {
      * 是否开启模拟调用
      */
     private boolean mock = false;
+
+    /**
+     * 序列化器
+     */
+    private String serializer = SerializerKeys.JDK;
 }
