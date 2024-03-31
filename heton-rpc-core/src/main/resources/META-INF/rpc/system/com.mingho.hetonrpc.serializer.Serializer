@@ -1,0 +1,4 @@
+jdk=com.mingho.hetonrpc.serializer.JdkSerializer
+hessian=com.mingho.hetonrpc.serializer.HessianSerializer
+json=com.mingho.hetonrpc.serializer.JsonSerializer
+kryo=com.mingho.hetonrpc.serializer.KryoSerializer
