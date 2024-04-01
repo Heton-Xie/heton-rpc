@@ -1,7 +1,10 @@
 package com.mingho.hetonrpc;
 
+import com.mingho.hetonrpc.config.RegistryConfig;
 import com.mingho.hetonrpc.config.RpcConfig;
 import com.mingho.hetonrpc.constant.RpcConstant;
+import com.mingho.hetonrpc.registry.Registry;
+import com.mingho.hetonrpc.registry.RegistryFactory;
 import com.mingho.hetonrpc.utils.ConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,11 +23,11 @@ public class RpcApplication {
     public static void init(RpcConfig newRpcConfig) {
         rpcConfig = newRpcConfig;
         log.info("rpc init, config = {}", newRpcConfig.toString());
-//        // 注册中心初始化
-//        RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
-//        Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
-//        registry.init(registryConfig);
-//        log.info("registry init, config = {}", registryConfig);
+        // 注册中心初始化
+        RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
+        Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
+        registry.init(registryConfig);
+        log.info("registry init, config = {}", registryConfig);
 //        // 创建并注册 Shutdown Hook，JVM 退出时执行操作
 //        Runtime.getRuntime().addShutdownHook(new Thread(registry::destroy));
     }
@@ -42,7 +45,6 @@ public class RpcApplication {
         }
         init(newRpcConfig);
     }
-
 
     /**
      * 获取配置

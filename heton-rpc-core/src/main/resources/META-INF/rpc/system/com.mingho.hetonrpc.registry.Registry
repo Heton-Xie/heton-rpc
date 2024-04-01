@@ -1,0 +1,1 @@
+zookeeper=com.mingho.hetonrpc.registry.ZooKeeperRegistry
